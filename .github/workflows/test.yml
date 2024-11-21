@@ -5,9 +5,6 @@ on:
 
 jobs:
     run-tests:
-        strategy:
-            matrix:
-              var: [1, 2, 3]
         name: sleep
         runs-on: self-hosted
         steps:
@@ -15,3 +12,16 @@ jobs:
               shell: bash
               run: |
                 sleep 10
+            - name: echo
+              shell: python3 {0}
+              run: |
+                print(type({}))
+
+    second-job:
+        name: Second job
+        runs-on: self-hosted
+        needs: run-tests
+        steps:
+            - name: test
+              run: |
+                echo "test"
