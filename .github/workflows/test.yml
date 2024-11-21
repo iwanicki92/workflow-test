@@ -7,6 +7,8 @@ jobs:
     run-tests:
         name: sleep
         runs-on: self-hosted
+        outputs:
+            RUNNER: ${{ runner.name }}
         steps:
             - name: sleep
               shell: bash
@@ -29,3 +31,14 @@ jobs:
               run: |
                 cat test_file
                 echo "${{ runner.name }}"
+
+    third-long-job:
+        name: Third Job
+        runs-on: self-hosted
+        strategy:
+            matrix:
+                var: [1, 2]
+        steps:
+            - name: wait
+              run: |
+                sleep 30s
