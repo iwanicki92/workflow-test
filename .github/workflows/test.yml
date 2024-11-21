@@ -24,7 +24,7 @@ jobs:
 
     second-job:
         name: Second job
-        runs-on: self-hosted
+        runs-on: ${{ needs.run-tests.outputs.RUNNER }}
         needs: run-tests
         steps:
             - name: test
