@@ -26,3 +26,18 @@ exit after job finishes
     ```sh
     ./run.sh
     ```
+
+1. To run multiple runners run second container instance and then configure &
+run second runner. While configuring set unique name e.g.
+
+    ```sh
+    ./config.sh --unattended --name runner_1 --ephemeral --url https://github.com/iwanicki92/workflow-test --token <TOKEN>
+    ```
+
+1. By default each runner will have `self-hosted` label. If your workflow
+contains multiple jobs then each job might run on different runner.
+
+## Ephemeral runners
+
+Might have problems with <https://github.com/actions/runner/issues/1396> if run
+from the docker

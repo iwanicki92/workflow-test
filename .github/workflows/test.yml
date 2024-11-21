@@ -15,7 +15,10 @@ jobs:
             - name: echo
               shell: python3 {0}
               run: |
-                print(type({}))
+                print("${{ runner.name }}")
+            - name: create file
+              run: |
+                echo "test" > test_file
 
     second-job:
         name: Second job
@@ -24,4 +27,5 @@ jobs:
         steps:
             - name: test
               run: |
-                echo "test"
+                cat test_file
+                echo "${{ runner.name }}"
