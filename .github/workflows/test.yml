@@ -1,0 +1,17 @@
+---
+name: Run DTS tests
+on:
+    push:
+
+jobs:
+    run-tests:
+        strategy:
+            matrix:
+              var: [1, 2, 3]
+        name: sleep
+        runs-on: self-hosted
+        steps:
+            - name: sleep
+              shell: bash
+              run: |
+                sleep 10
