@@ -1,7 +1,7 @@
 ---
 name: Run DTS tests
 on:
-    push:
+    pull_request:
 
 jobs:
     run-tests:
