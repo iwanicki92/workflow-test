@@ -1,0 +1,7 @@
+steps:
+  - name: build
+    image: alpine:latest
+    commands:
+      - echo building
+      - ip a
+      - sleep 20

@@ -1,0 +1,9 @@
+steps:
+  - name: test
+    image: debian:stable-slim
+    commands:
+      - echo testing
+      - sleep 5
+
+depends_on:
+  - build
