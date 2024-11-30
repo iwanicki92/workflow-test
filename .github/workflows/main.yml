@@ -1,0 +1,28 @@
+---
+name: Run main workflow
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+      number:
+        required: true
+        type: number
+
+jobs:
+  build-call:
+    name: Call build reusable workflow
+    uses: ./.github/workflows/build.yml
+    with:
+      name: ${{ inputs.name }}
+  second-job:
+    name: "Second job: ${{ inputs.number }}"
+    runs-on: self-hosted
+    outputs:
+      RUNNER: ${{ runner.name }}
+    steps:
+      - name: Step 1
+        run: echo step 1
+      - name: Step 2
+        run: echo step 2

@@ -1,0 +1,22 @@
+---
+name: Matrix dispatch
+on:
+  push
+
+jobs:
+  matrix-job:
+    name: Third Job
+    # runs-on: self-hosted
+    strategy:
+      matrix:
+        test:
+          - name: one
+            number: 10
+          - name: two
+            number: 20
+          - name: three
+            number: 30
+    uses: ./.github/workflows/main.yml
+    with:
+      name: ${{ matrix.test.name }}
+      number: ${{ matrix.test.number }}
