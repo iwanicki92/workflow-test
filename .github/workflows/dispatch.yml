@@ -8,6 +8,7 @@ jobs:
     name: Third Job
     # runs-on: self-hosted
     strategy:
+      max-parallel: 1
       matrix:
         test:
           - name: one
