@@ -20,10 +20,11 @@ jobs:
     name: "Second job: ${{ inputs.number }}"
     needs: build-call
     runs-on: self-hosted
+    container: alpine
     outputs:
       RUNNER: ${{ runner.name }}
     steps:
       - name: Step 1
         run: echo step 1
       - name: Step 2
-        run: echo "<$RUNNER>"
+        run: echo "<${{ runner.name }}>"
